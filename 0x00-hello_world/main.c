@@ -6,6 +6,5 @@
  */
 int main(void)
 {
-	printf("This seems to be getting harder, God Help me");
 	return (0);
 }
