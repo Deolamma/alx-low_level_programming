@@ -7,12 +7,21 @@
  */
 void print_alphabet_x10(void)
 {
-	/* ctr is our counter and helps us loop through the WHILE */
+	/**
+	 * alp represents our character value
+	 * char are ints
+	 * ctr is our counter and helps us loop through the WHILE
+	 */
+	int alp;
 	int ctr = 0;
 
 	while (ctr < 10)
 	{
-		print_alphabet();
+		for (alp = 'a'; alp <= 'z' ; alp++)
+		{
+			_putchar(alp);
+		}
+		_putchar('\n');
 		ctr++;
 	}
 }
