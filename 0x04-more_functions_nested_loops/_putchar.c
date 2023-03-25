@@ -5,7 +5,7 @@
  *
  * Return: an integer or character as the case may be
  */
-int _putchar(int a)
+int _putchar(char a)
 {
-	return (putchar('0' + a));
+	return (putchar(a));
 }
