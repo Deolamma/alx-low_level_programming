@@ -12,7 +12,7 @@ char *string_toupper(char *str)
 
 	while (str[i] != '\0')
 	{
-		if (str[i] != ' ' && str[i] != '\n')
+		if (str[i] != ' ' && str[i] != '\n' && str[i] != '!')
 		{
 			if (str[i] > 65 && str[i] <= 90)
 			{
