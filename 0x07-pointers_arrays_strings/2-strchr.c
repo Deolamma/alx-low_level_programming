@@ -1,5 +1,5 @@
 #include "main.h"
-#include <stddef.h>
+#include <string.h>
 /**
  * _strchr - prints out the remainder of a string, when it hits
  * a certain character
@@ -12,11 +12,5 @@
  */
 char *_strchr(char *s, char c)
 {
-	while (*s != '\0')
-	{
-		if (*s == c)
-			return ((char *) s);
-		s++;
-	}
-	return (NULL);
+	return (strchr(s, c));
 }
