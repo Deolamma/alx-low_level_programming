@@ -5,10 +5,12 @@
  * @argc: stores the number of arguments passed into main
  * @argv: stores the arguments of an array
  *
+ * Return: returns 0 (success) or 1 (failure)
  */
 int main(int argc, char *argv[])
 {
 	int i;
+
 	if (argc > 0)
 	{
 		for (i = 0; i < argc; i++)
