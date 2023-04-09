@@ -14,8 +14,11 @@ int main(int argc, char *argv[])
 	int i;
 	int sum = 0;
 
+	if (argc == 1)
+		printf("0\n");
 	if (argc > 2)
 	{
+
 		for (i = 1; i < argc; i++)
 		{
 			/**
