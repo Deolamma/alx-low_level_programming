@@ -15,7 +15,7 @@ int _checkzero(int a, char *myarg[])
 
 	for (i = 1; i < a; i++)
 	{
-		if (isdigit(*myarg[]))
+		if (isdigit(*myarg[i]))
 			count++;
 	}
 	if (count == 0)
