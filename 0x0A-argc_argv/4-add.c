@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <ctype.h>
 #include <stdlib.h>
-#include "main.h"
 /**
  * main - prints out the sum of all arguments passed unto main
  *
@@ -53,3 +52,4 @@ int main(int argc, char *argv[])
 	}
 	return (0);
 }
+
