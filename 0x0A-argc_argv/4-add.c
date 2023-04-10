@@ -10,19 +10,19 @@
  */
 int _checkzero(int a, char *myarg[])
 {
-        int i = 0;
-        int count = 0;
+	int i = 0;
+	int count = 0;
 
-        for (i = 1; i < a; i++)
-        {
-                if (isdigit(*myarg[i]))
-                        count++;
-        }
-	   if (count == 0)
-        {
-                printf("0\n");
+	for (i = 1; i < a; i++)
+	{
+		if (isdigit(*myarg[]))
+			count++;
+	}
+	if (count == 0)
+	{
+		printf("0\n");
 		return (1);
-        }
+	}
 	return (0);
 }
 
@@ -49,7 +49,7 @@ int main(int argc, char *argv[])
 		/**
 		 * checks that no int digit was passed as an argument and prints out 0
 		 */
-		if(_checkzero(argc, argv) == 1)
+		if (_checkzero(argc, argv) == 1)
 			return (1);
 		for (i = 1; i < argc; i++)
 		{

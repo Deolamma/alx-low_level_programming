@@ -2,6 +2,5 @@
 #define MAIN_H
 
 int _putchar(char *);
-int _checkzero(int, char *[]);
 
 #endif
