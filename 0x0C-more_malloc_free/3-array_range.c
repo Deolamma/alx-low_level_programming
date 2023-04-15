@@ -17,11 +17,10 @@ int *array_range(int min, int max)
 
 	if (min > max)
 		return (NULL);
+	if (min == 0 && max == 0)
+		return (NULL);
 	if (min < 0 && max < 0)
-	/**
-	 * len: stores the number of element that'll be created
-	 * in our int array
-	 */
+	/* len: stores number of element to be in myarr */
 	{
 		len = ((-min) + max) + 1;
 		myarr = malloc(len * sizeof(int));
