@@ -11,12 +11,12 @@
  */
 void *_calloc(unsigned int nmemb, unsigned int size)
 {
-	int *myarr;
+	void *myarr;
 
 	if (nmemb == 0 || size == 0)
 		return (NULL);
-	myarr = calloc(nmemb, sizeof(size));
+	myarr = calloc(nmemb, size);
 	if (myarr == NULL)
 		return (NULL);
-	return(myarr);
+	return (myarr);
 }
