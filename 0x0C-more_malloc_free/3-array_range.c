@@ -23,23 +23,22 @@ int *array_range(int min, int max)
 	/* len: stores number of element to be in myarr */
 	{
 		len = ((-min) + max) + 1;
-		myarr = malloc(len * sizeof(int));
 	} else if (min < 0 && max > 0)
 	{
 		len = ((-min) + max) + 1;
-		myarr = malloc(len * sizeof(int));
 	} else if (min > 1)
 	{
 		len = max;
-		myarr = malloc(len * sizeof(int));
 	} else if (min == 0 && max > 0)
 	{
 		len = max + 1;
-		myarr = malloc((len + 1) * sizeof(int));
 	} else
 	{
 		return (NULL);
 	}
+	if ((size_t)len > ((size_t)-1) / sizeof(int))
+		return (NULL);
+	myarr = malloc(len * sizeof(int));
 	if (myarr == NULL)
 		return (NULL);
 	for (i = 0; i < len; i++)
