@@ -14,7 +14,7 @@ void init_dog(struct dog *d, char *name, float age, char *owner)
 	int namelen = 0;
 	int ownlen = 0;
 
-	if (name == NULL || age < 0.0 || owner == NULL)
+	if (d == NULL || name == NULL || age < 0.0 || owner == NULL)
 		return;
 	for (i = 0; name[i] != '\0'; i++)
 		namelen++;
