@@ -24,7 +24,6 @@ void print_numbers(const char *separator, const unsigned int n, ...)
 		i == (int) n - 1 ? "" : separator) : printf("%d", x);
 		i++;
 	}
-	if (separator == NULL)
-		printf("\n");
+	printf("\n");
 }
 
