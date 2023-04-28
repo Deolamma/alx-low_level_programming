@@ -12,7 +12,7 @@ list_t *add_node_end(list_t **head, const char *str)
 {
 	list_t *ptr = malloc(sizeof(list_t));
 	list_t *tmp = *head;
-	
+
 	if (ptr == NULL)
 		return (NULL);
 	if (str == NULL)
@@ -30,7 +30,8 @@ list_t *add_node_end(list_t **head, const char *str)
 	ptr->next = NULL;
 	if (*head == NULL)
 	{
-		/* if head is null assign the new pointer to be the
+		/**
+		 * if head is null assign the new pointer to be the
 		 * pointer
 		 */
 		*head = ptr;
