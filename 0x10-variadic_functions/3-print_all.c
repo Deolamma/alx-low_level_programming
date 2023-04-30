@@ -66,6 +66,11 @@ void print_all(const char * const format, ...)
 	va_list myargs;
 	const char *p;
 
+	if (format == NULL)
+	{
+		printf("\n");
+		return;
+	}
 	va_start(myargs, format);
 	p = format;
 	while (*p != '\0')
@@ -73,25 +78,17 @@ void print_all(const char * const format, ...)
 		switch (*p)
 		{
 			case 'c':
-			{
 				print_char(myargs);
 				break;
-			}
 			case 'i':
-			{
 				print_int(myargs);
 				break;
-			}
 			case 'f':
-			{
 				print_float(myargs);
 				break;
-			}
 			case 's':
-			{
 				print_string(myargs);
 				break;
-			}
 			default:
 				break;
 		}
