@@ -66,11 +66,6 @@ void print_all(const char * const format, ...)
 	va_list myargs;
 	const char *p;
 
-	if (format == NULL)
-	{
-		printf("\n");
-		return;
-	}
 	va_start(myargs, format);
 	p = format;
 	while (*p != '\0')
