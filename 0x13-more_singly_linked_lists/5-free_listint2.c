@@ -12,7 +12,10 @@ void free_listint2(listint_t **head)
 	listint_t *tmp;
 
 	curNode = *head;
-
+	if (head == NULL)
+	{
+		return;
+	}
 	while (curNode != NULL)
 	{
 		tmp = curNode->next;
