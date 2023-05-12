@@ -25,7 +25,7 @@ int create_file(const char *filename, char *text_content)
 			count++;
 		txt_content_len = (ssize_t) count + 1;
 		written_bytes = write(fd, text_content, txt_content_len);
-		if (written_bytes != txt_content_len)
+		if (written_bytes == -1 || written_bytes != txt_content_len)
 		{
 			close(fd);
 			return (-1);
