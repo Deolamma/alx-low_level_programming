@@ -54,7 +54,11 @@ void copy_file(const char *file_frm, const char *file_to)
 		error_file_frm(file_frm);
 	if (file_to == NULL)
 		error_file_to(file_to);
-	fd_to = open(file_to, O_CREAT | O_WRONLY | O_TRUNC, PERMS);
+	if (access(file_to, F_OK) == 0)
+	{
+		fd_to = open(file_to, O_WRONLY | O_TRUNC);
+	} else
+		fd_to = creat(file_to, PERMS);
 	if (fd_to == -1)
 		error_file_to(file_to);
 	do {
@@ -82,7 +86,7 @@ int main(int argc, char **argv)
 {
 	if (argc != 3)
 	{
-		dprintf(ERR, "Usage: %s file_from file_to", argv[0]);
+		dprintf(ERR, "Usage: cp file_from file_to\n");
 		exit(97);
 	}
 	/* call to function that performs file copy */
