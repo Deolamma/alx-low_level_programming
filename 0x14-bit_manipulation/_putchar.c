@@ -1,4 +1,5 @@
 #include <unistd.h>
+#include "main.h"
 /**
  * _putchar - prints out one character at a time
  * @c: character to be printed out
@@ -6,7 +7,6 @@
  */
 int _putchar(int c)
 {
-	write(1, c, 1);
-	return (0);
+	return (write(STDOUT_FILENO, &c, 1));
 }
 
