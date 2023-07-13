@@ -80,7 +80,7 @@ void cp(char *file_from, char *file_to)
 	}
 	while ((nb_read = read(fd_from, buff, BUFFSIZ)) > 0)
 	{
-		if (nb_read == -1)
+		if (nb_read != BUFFSIZ || nd_read == -1)
 		{
 			file_from_err_handler(file_from);
 			close(fd_from);
@@ -88,7 +88,7 @@ void cp(char *file_from, char *file_to)
 				fd_err_handler(fd_to);
 		}
 		nb_written = write(fd_to, buff, nb_read);
-		if (nb_written == -1 || nb_written != nb_read)
+		if (nb_written != nb_read || nb_written == -1)
 		{
 			file_to_err_handler(file_to);
 			close(fd_to);
