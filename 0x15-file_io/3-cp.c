@@ -73,7 +73,11 @@ void cp(char *file_from, char *file_to)
 		file_to_err_handler(file_to);
 	fd_from = open(file_from, O_RDONLY);
 	if (fd_from == -1)
+	{
 		file_from_err_handler(file_from);
+		if (close(fd_to) == -1)
+			fd_err_handler(fd_to);
+	}
 	while ((nb_read = read(fd_from, buff, BUFFSIZ)) > 0)
 	{
 		if (nb_read == -1)
@@ -92,7 +96,9 @@ void cp(char *file_from, char *file_to)
 				fd_err_handler(fd_from);
 		}
 	}
-	close(fd_to);
-	close(fd_from);
+	if (close(fd_to) == -1)
+		fd_err_handler(fd_to);
+	if (close(fd_from) == -1)
+		fd_err_handler(fd_from);
 }
 
