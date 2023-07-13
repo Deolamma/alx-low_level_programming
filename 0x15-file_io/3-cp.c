@@ -61,26 +61,27 @@ int main(int argc, char **argv)
  */
 void cp(char *file_from, char *file_to)
 {
-	/* file descriptors for file_from and file_to */
 	int fd_from, fd_to;
 	char buff[BUFFSIZ];
 	ssize_t nb_read, nb_written;
 
-	if (file_to == NULL || file_from == NULL)
-		exit(98);
-	fd_to = open(file_to, O_WRONLY | O_CREAT | O_TRUNC, 0664);
-	if (fd_to == -1)
+	if (file_from == NULL)
+		file_from_err_handler(file_from);
+	if (file_to == NULL)
 		file_to_err_handler(file_to);
 	fd_from = open(file_from, O_RDONLY);
 	if (fd_from == -1)
-	{
 		file_from_err_handler(file_from);
-		if (close(fd_to) == -1)
-			fd_err_handler(fd_to);
+	fd_to = open(file_to, O_WRONLY | O_CREAT | O_TRUNC, 0664);
+	if (fd_to == -1)
+	{
+		file_to_err_handler(file_to);
+		if (close(fd_from) == -1)
+			fd_err_handler(fd_from);
 	}
 	while ((nb_read = read(fd_from, buff, BUFFSIZ)) > 0)
 	{
-		if (nb_read != BUFFSIZ || nb_read == -1)
+		if (nb_read == -1)
 		{
 			file_from_err_handler(file_from);
 			close(fd_from);
