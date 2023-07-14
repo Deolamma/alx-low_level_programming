@@ -93,6 +93,7 @@ void cp(char *file_from, char *file_to)
 			if (close(fd_from) == -1)
 				fd_err_handler(fd_from);
 		}
+		BUFFSIZ += BUFFSIZ;
 	}
 	if (close(fd_to) == -1)
 		fd_err_handler(fd_to);
