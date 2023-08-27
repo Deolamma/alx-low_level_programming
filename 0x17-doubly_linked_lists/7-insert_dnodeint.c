@@ -10,38 +10,48 @@
 dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx,
 		int n)
 {
-	dlistint_t *new_node, *forward_node, *current;
+	dlistint_t *new_node, *fwd_node, *current;
 
-	if (idx == 0 && !(*h))
-		add_dnodeint(&(*h), n);
+	new_node = malloc(sizeof(dlistint_t));
+	if (!new_node)
+		return (NULL);
 
-	if ((idx == 1 || idx == 0) && (!(*h)->next))
-		add_dnodeint_end(&(*h), n);
+	if (idx == 0)
+		return (add_dnodeint(h, n));
+
 	current = *h;
-	forward_node = current->next;
-	while (idx != 0 && forward_node)
+	fwd_node = current->next;
+	new_node->n = n;
+	/* Continue loop while curr_node != NULL OR idx != 0*/
+	while (current && idx != 0)
 	{
-		forward_node = forward_node->next;
 		current = current->next;
+		if (fwd_node)
+			fwd_node = fwd_node->next;
 		idx--;
 	}
-	if (!(current->next) && !(forward_node) && idx == 0)
+	if (!(current) && idx > 0)
 	{
-		add_dnodeint_end(&(*h), n);
-	} else if (idx == 0 && forward_node && current)
-	{
-		new_node = malloc(sizeof(dlistint_t));
-		if (!new_node)
-			return (NULL);
-
-		new_node->n = n;
-		current->next = new_node;
-		new_node->prev = current;
-		new_node->next = forward_node;
-		forward_node->prev = new_node;
-		return (*h);
+		free(new_node);
+		return (NULL);
 	}
-	return (NULL);
+	/**
+	 * covers cases insert at index 1 and 1 node in the list
+	 * OR
+	 * we are at the end of the list
+	 */
+	if (idx == 0 && !(current->next))
+		return (add_dnodeint_end(h, n));
+
+	current = current->prev;
+	fwd_node = fwd_node->prev;
+
+	current->next = new_node;
+	new_node->prev = current;
+	new_node->next = fwd_node;
+	if (fwd_node)
+		fwd_node->prev = new_node;
+	return (*h);
 }
 
 
