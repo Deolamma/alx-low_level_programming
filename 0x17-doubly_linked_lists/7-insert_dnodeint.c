@@ -42,10 +42,8 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx,
 	 */
 	if (idx == 0 && !(current->next))
 		return (add_dnodeint_end(h, n));
-
 	current = current->prev;
 	fwd_node = fwd_node->prev;
-
 	current->next = new_node;
 	new_node->prev = current;
 	new_node->next = fwd_node;
