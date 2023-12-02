@@ -1,0 +1,8 @@
+# Creating my first makefile
+
+# creating a rule all which is the default start point of my makefile
+all: school
+
+# school is my executable created after build is complete
+school: main.c school.c m.h
+	gcc main.c school.c -o school
