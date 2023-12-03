@@ -13,8 +13,7 @@ all: $(NAME)
 $(NAME): $(OBJ)
 	$(CC) $^ -o $@
 
-main.o: main.c
-	$(CC) -c -o main.o main.c
-
-school.o: school.c
-	$(CC) -c -o school.o school.c
+# % expands to any alphanumeric sequence of characters NOT a space. 
+# $< expands to every prerequisite passed
+%.o: %.c
+	$(CC) -c -o $@ $<
