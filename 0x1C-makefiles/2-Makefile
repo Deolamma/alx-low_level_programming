@@ -3,7 +3,10 @@
 
 CC = gcc
 SRC = main.c school.c
-OBJ = main.o school.o
+
+# The expansion below checks for each file in source that has the suffix .c
+# And creates a new list of those files found with a new suffix .o
+OBJ = $(SRC: .c=.o)
 NAME = school
 
 # all target rule
