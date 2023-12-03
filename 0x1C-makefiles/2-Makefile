@@ -18,7 +18,7 @@ $(NAME): $(OBJ)
 	$(CC) $^ -o $@
 
 # % expands to any alphanumeric sequence of characters NOT a space. 
-# $< expands to every prerequisite passed
+# $< expands to the very first prerequisite, which is the corresponding .c file
 %.o: %.c
 	$(CC) -c -o $@ $<
 
