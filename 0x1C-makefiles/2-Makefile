@@ -6,7 +6,8 @@ SRC = main.c school.c
 
 # The expansion below checks for each file in source that has the suffix .c
 # And creates a new list of those files found with a new suffix .o
-OBJ = $(SRC: .c=.o)
+# NOTE: DO NOT ADD A SPACE IN THE PARENTHESIS
+OBJ = $(SRC:.c=.o)
 NAME = school
 
 # all target rule
@@ -20,3 +21,4 @@ $(NAME): $(OBJ)
 # $< expands to every prerequisite passed
 %.o: %.c
 	$(CC) -c -o $@ $<
+
