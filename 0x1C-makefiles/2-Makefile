@@ -1,0 +1,20 @@
+# More variables with makefile
+# Creating a more useful makefile
+
+CC = gcc
+SRC = main.c school.c
+OBJ = main.o school.o
+NAME = school
+
+# all target rule
+all: $(NAME)
+
+# $^ expands to all the prerequisite and $@ expands to the name of target
+$(NAME): $(OBJ)
+	$(CC) $^ -o $@
+
+main.o: main.c
+	$(CC) -c -o main.o main.c
+
+school.o: school.c
+	$(CC) -c -o school.o school.c
