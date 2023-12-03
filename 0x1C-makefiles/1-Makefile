@@ -1,0 +1,9 @@
+# Creating a makefile using variables
+
+# Declaring variables
+CC = gcc
+SRC = main.c school.c
+
+# creating all target
+all: $(SRC)
+	$(CC) $(SRC) -o school
