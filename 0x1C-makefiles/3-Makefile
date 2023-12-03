@@ -1,0 +1,29 @@
+# FORCING RECOMPILATION
+
+CC = gcc
+SRC = main.c school.c
+OBJ = $(SRC:.c=.o)
+NAME = school
+RM = rm -f
+
+# recompiles only changed files
+all: $(NAME)
+
+# FORCES RECOMPILATION
+re: oclean all
+
+$(NAME): $(OBJ)
+	$(CC) $^ -o $@
+
+%.o: %.c
+	$(CC) -c -o $@ $<
+
+# CLEAN UP COMMANDS
+
+clean:
+	$(RM) *~ $(NAME)
+
+oclean:
+	$(RM) $(OBJ)
+
+fclean: clean oclean
