@@ -4,5 +4,6 @@
 
 /* Function declarations */
 int linear_search(int *, size_t, int);
+int binary_search(int *, size_t, int);
 
 #endif /* end #ifndef SEARCH_ALGOS_H */
