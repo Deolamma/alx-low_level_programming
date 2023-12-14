@@ -43,7 +43,7 @@ int binary_search(int *array, size_t size, int value)
 		search_space(array, lIndex, rIndex);
 		midIndex = (lIndex + rIndex) / 2;
 
-		if (array [midIndex] == value)
+		if (array[midIndex] == value)
 			return (midIndex);
 
 		if (value > array[midIndex])
